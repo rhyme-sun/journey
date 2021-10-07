@@ -16,15 +16,21 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <mysql.version>5.1.47</mysql.version>
         <commons.collections.version>4.4</commons.collections.version>
         <mybatis.plus.version>3.4.3.2</mybatis.plus.version>
+        <spring.boot.version>2.5.2</spring.boot.version>
+        <spring.cloud.version>2020.0.3</spring.cloud.version>
 
         <!-- plugin -->
         <maven.checkstyle.plugin.version>3.1.2</maven.checkstyle.plugin.version>
         <checkstyle.version>8.45</checkstyle.version>
+        <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
+
+        <!-- version -->
+        <journey.version>v0.0.1</journey.version>
     </properties>
 
     <dependencyManagement>
@@ -32,14 +38,14 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.2</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2020.0.3</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -63,6 +69,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

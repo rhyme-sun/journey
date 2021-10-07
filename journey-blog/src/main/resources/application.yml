@@ -3,13 +3,13 @@ server:
 storage:
   type: file-system
   online-prefix: http://127.0.0.1:8081/
-  location: D:/temp/
+  location: ${LOCAL_STORAGE_LOCATON:D:/temp/}
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/journey?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/journey?useUnicode=true&characterEncoding=utf-8&useSSL=false}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
@@ -19,8 +19,9 @@ spring:
   security:
     user:
       name: simon
-      password: simon123
+      password: ${ADMIN_PASSWORD:$2a$10$/jJ2eItomUfSwbv97Gjh8O.uMB/2HBZ9jyLdlh8K/4rZ8v2xhI.9G}
+      roles: admin
 logging:
   level:
     org.springframework.security: info
-    com.rhymesun.journey.blog: debug
+    com.rhymesun.journey.blog: info

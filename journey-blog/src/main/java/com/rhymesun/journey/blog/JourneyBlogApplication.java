@@ -24,8 +24,6 @@ public class JourneyBlogApplication {
 
     @Bean
     CommandLineRunner init(final ImageStorage imageStorage) {
-        return args -> {
-            imageStorage.init();
-        };
+        return args -> imageStorage.init();
     }
 }

@@ -1,8 +1,11 @@
 package com.rhymesun.journey.blog.infrastructure.config;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,6 +22,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private final SecurityProperties securityProperties;
+
+    @Autowired
+    public WebSecurityConfig(final SecurityProperties securityProperties) {
+        this.securityProperties = securityProperties;
+    }
+
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
@@ -26,10 +36,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+        final SecurityProperties.User user = securityProperties.getUser();
+        final List<String> roles = user.getRoles();
         auth.inMemoryAuthentication()
-                .withUser("simon")
-                .password("$2a$10$bF/iK.d/IDRfo3xWhbnu9ugXz2WXMMNFeVPpgy4Ix66PyK7ihwAvS")
-                .roles("admin");
+                .withUser(user.getName())
+                .password(user.getPassword())
+                .roles(roles.toArray(new String[roles.size()]));
     }
 
     @Override
