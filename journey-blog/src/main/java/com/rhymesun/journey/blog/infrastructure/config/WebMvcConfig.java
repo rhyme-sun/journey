@@ -20,7 +20,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addCorsMappings(final CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowCredentials(true)
-                .allowedOriginPatterns("http://localhost:[8080]")
+                .allowedOriginPatterns(ASTERISK)
                 .allowedMethods(ASTERISK)
                 .allowedHeaders(ASTERISK)
                 .maxAge(Duration.ofHours(1).getSeconds());
