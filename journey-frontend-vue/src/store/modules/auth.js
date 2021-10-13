@@ -30,12 +30,14 @@ const mutations = {
     );
   },
   clearAuthority(state, response) {
-    response.authorities.forEach((element) => {
-      const index = state.authorities.indexOf(element.authority);
-      if (index >= 0) {
-        state.authorities.splice(index, 1);
-      }
-    });
+    if (response.authorities) {
+      response.authorities.forEach((element) => {
+        const index = state.authorities.indexOf(element.authority);
+        if (index >= 0) {
+          state.authorities.splice(index, 1);
+        }
+      });
+    }
   },
 };
 

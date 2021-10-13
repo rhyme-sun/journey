@@ -29,8 +29,6 @@ export default defineComponent({
     const sideMenuData = computed(() =>
       createManagementSideMenuData(router.options.routes)
     );
-    console.log(sideMenuData);
-
     const handleChangeManagement = (path) => {
       router.push(path);
     };

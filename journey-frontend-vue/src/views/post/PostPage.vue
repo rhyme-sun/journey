@@ -45,16 +45,13 @@ export default defineComponent({
     });
 
     const store = useStore();
-    const getTagById = (tagId) => {
-      return store.getters["tag/getTag"](tagId);
-    };
     const getTitle = computed(() => {
       if (routeOptions.path.includes("categories")) {
         return store.getters["category/getCategory"](routeOptions.params.id)
-          .categoryName;
+          ?.categoryName;
       }
       if (routeOptions.path.includes("tags")) {
-        return getTagById(routeOptions.params.id).tagName;
+        return store.getters["tag/getTag"](routeOptions.params.id)?.tagName;
       }
       const year = routeOptions.params.year;
       const month = routeOptions.params.month;

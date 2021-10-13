@@ -4,7 +4,9 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
+        "serve:prod": "cross-env NODE_ENV=prod vue-cli-service serve",
         "build": "vue-cli-service build",
+        "build:prod": "cross-env NODE_ENV=prod vue-cli-service build",
         "test:unit": "vue-cli-service test:unit",
         "lint": "vue-cli-service lint"
     },
@@ -12,6 +14,7 @@
         "@kangc/v-md-editor": "^2.3.8",
         "ant-design-vue": "^2.2.6",
         "core-js": "^3.6.5",
+        "cross-env": "^7.0.3",
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "nprogress": "^0.2.0",

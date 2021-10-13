@@ -32,8 +32,6 @@ export default defineComponent({
     const handleOk = (e) => {
       console.log(e);
       formRef.value.validate().then(() => {
-        console.log(e);
-        console.log("values", formState, toRaw(formState));
         categoryRest
           .saveCategory(toRaw(formState))
           .then((result) => {

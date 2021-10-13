@@ -38,9 +38,17 @@ const errorHandler = function (error) {
   return response;
 };
 
+const getPrefix = () => {
+  if (process.env.NODE_ENV === "prod") {
+    return "http://114.115.163.68:8081/journey";
+  } else {
+    return "http://localhost:8081/journey";
+  }
+};
+
 const request = extend({
   errorHandler,
-  prefix: "http://localhost:8081/journey",
+  prefix: getPrefix(),
   credentials: "include",
   mode: "cors",
 });

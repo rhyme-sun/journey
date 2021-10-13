@@ -35,6 +35,7 @@ const routes = [
       {
         path: "/journey/categories",
         name: "Category",
+        redirect: "/journey",
         meta: { icon: "folder-open-outlined", title: "分类", hideInMenu: true },
       },
       {
@@ -94,16 +95,6 @@ const routes = [
           import(/* webpackChunkName: "about" */ "../views/about/About.vue"),
         meta: { icon: "robot-outlined", title: "关于", hideInMenu: false },
       },
-      // {
-      //   path: "/journey/go-to-management",
-      //   redirect: "/journey/management",
-      //   meta: {
-      //     icon: "setting-outlined",
-      //     title: "博客管理",
-      //     hideInMenu: false,
-      //     authority: ["ROLE_admin"],
-      //   },
-      // },
       {
         path: "/journey/management",
         name: "Management",

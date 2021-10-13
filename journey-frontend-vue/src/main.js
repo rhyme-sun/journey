@@ -55,3 +55,10 @@ createApp(App)
   .use(Result)
   .use(Tooltip)
   .mount("#app");
+
+// if (process.env.NODE_ENV !== "prod") {
+//   if ("__VUE_DEVTOOLS_GLOBAL_HOOK__" in window) {
+//     window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app;
+//   }
+//   app.config.devtools = true;
+// }
