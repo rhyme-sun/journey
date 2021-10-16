@@ -26,9 +26,11 @@ import {
   Timeline,
   Result,
   Tooltip,
+  Typography,
 } from "ant-design-vue";
 
-createApp(App)
+const app = createApp(App);
+app
   .use(store)
   .use(router)
   .use(Layout)
@@ -54,11 +56,10 @@ createApp(App)
   .use(Timeline)
   .use(Result)
   .use(Tooltip)
-  .mount("#app");
+  .use(Typography);
 
-// if (process.env.NODE_ENV !== "prod") {
-//   if ("__VUE_DEVTOOLS_GLOBAL_HOOK__" in window) {
-//     window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app;
-//   }
-//   app.config.devtools = true;
-// }
+if (process.env.NODE_ENV === "prod") {
+  app.config.devtools = false;
+}
+
+app.mount("#app");
