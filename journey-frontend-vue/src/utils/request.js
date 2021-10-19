@@ -39,7 +39,7 @@ const errorHandler = function (error) {
 };
 
 const getPrefix = () => {
-  if (process.env.NODE_ENV === "prod") {
+  if (process.env.NODE_ENV === "production") {
     return "http://114.115.163.68:8081/journey";
   } else {
     return "http://localhost:8081/journey";

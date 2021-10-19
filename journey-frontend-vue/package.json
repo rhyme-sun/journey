@@ -4,9 +4,8 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "serve:prod": "cross-env NODE_ENV=prod vue-cli-service serve",
+        "serve:prod": "cross-env NODE_ENV=production vue-cli-service serve",
         "build": "vue-cli-service build",
-        "build:prod": "cross-env NODE_ENV=prod vue-cli-service build",
         "test:unit": "vue-cli-service test:unit",
         "lint": "vue-cli-service lint"
     },

@@ -58,7 +58,7 @@ app
   .use(Tooltip)
   .use(Typography);
 
-if (process.env.NODE_ENV === "prod") {
+if (process.env.NODE_ENV === "production") {
   app.config.devtools = false;
 }
 
