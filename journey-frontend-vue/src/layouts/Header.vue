@@ -31,7 +31,6 @@ import {
 import CategoryLayout from "./CategoryLayout.vue";
 import ManagementLayout from "./ManagementLayout.vue";
 import Login from "@/views/user/Login.vue";
-import Authorized from "@/components/Authorized.vue";
 import { check } from "@/utils/auth.js";
 
 import { createHomeMenuData } from "../utils/menu";
@@ -65,7 +64,6 @@ export default defineComponent({
   components: {
     CategoryLayout,
     ManagementLayout,
-    Authorized,
     Login,
     TagsOutlined,
     CalendarOutlined,
