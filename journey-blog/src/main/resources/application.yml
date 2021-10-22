@@ -2,8 +2,8 @@ server:
   port: 8081
 storage:
   type: file-system
-  online-prefix: http://127.0.0.1:8081/
-  location: ${LOCAL_STORAGE_LOCATON:D:/temp/}
+  online-prefix: ${ONLINE_PREFIX:http://localhost:8081/}
+  location: ${LOCAL_STORAGE_LOCATION:D:\tmp\}
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -13,9 +13,6 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  web:
-    resources:
-      static-locations: file:${storage.location},classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
   security:
     user:
       name: simon
