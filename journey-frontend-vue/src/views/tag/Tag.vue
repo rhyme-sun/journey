@@ -40,9 +40,9 @@ export default defineComponent({
 
     const getTagColor = (tag) => {
       if (tag.isGroup) {
-        return "#434343";
+        return "#1890ff";
       } else {
-        return "#bfbfbf";
+        return "#ffa940";
       }
     };
 

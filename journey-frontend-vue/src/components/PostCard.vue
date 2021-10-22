@@ -11,7 +11,9 @@
     </div>
     <div class="post-content-abstract">
       <h3 @click="handleClickTitle(postId)">
-        {{ title }}
+        <a>
+          {{ title }}
+        </a>
       </h3>
       <p>{{ contentAbstract }}</p>
       <a-tag
@@ -87,9 +89,9 @@ export default defineComponent({
     };
     const getTagColor = (tag) => {
       if (tag.isGroup) {
-        return "#434343";
+        return "#1890ff";
       } else {
-        return "#bfbfbf";
+        return "#ffa940";
       }
     };
 
@@ -116,9 +118,10 @@ export default defineComponent({
   --primary-card-bg-color: #434343;
 }
 .post-create-time-box {
-  width: 72px;
+  width: 80px;
   margin-right: 30px;
-  flex: 1;
+  margin-top: 6px;
+  flex: 1.5;
 }
 .post-create-year-month {
   background-color: var(--primary-card-bg-color);
@@ -128,7 +131,7 @@ export default defineComponent({
   border-radius: 3px 3px 0px 0px;
 }
 .post-create-day {
-  height: 60px;
+  height: 63px;
   border: solid 1px var(--primary-card-bg-color);
   color: var(--primary-card-bg-color);
   text-align: center;
@@ -146,10 +149,6 @@ export default defineComponent({
 }
 .post-content-abstract {
   flex: 13;
-}
-.post-content-abstract > h3 {
-  color: var(--primary-card-bg-color);
-  cursor: pointer;
 }
 .post-tag {
   cursor: pointer;
