@@ -38,23 +38,18 @@ export default defineComponent({
       router.push(`/journey/posts/${postId}`);
     };
 
-    const route = useRoute();
-    const routeOptions = reactive({
-      path: route.path,
-      params: route.params,
-    });
-
     const store = useStore();
+    const route = useRoute();
     const getTitle = computed(() => {
-      if (routeOptions.path.includes("categories")) {
-        return store.getters["category/getCategory"](routeOptions.params.id)
+      if (route.path.includes("categories")) {
+        return store.getters["category/getCategory"](route.params.id)
           ?.categoryName;
       }
-      if (routeOptions.path.includes("tags")) {
-        return store.getters["tag/getTag"](routeOptions.params.id)?.tagName;
+      if (route.path.includes("tags")) {
+        return store.getters["tag/getTag"](route.params.id)?.tagName;
       }
-      const year = routeOptions.params.year;
-      const month = routeOptions.params.month;
+      const year = route.params.year;
+      const month = route.params.month;
       if (year) {
         if (month) {
           return year + "-" + month;
@@ -65,6 +60,7 @@ export default defineComponent({
       return "";
     });
 
+    // const route = useRoute();
     const pageOptions = reactive({
       current: 1,
       pageSize: 10,
@@ -84,8 +80,6 @@ export default defineComponent({
       });
     };
     onBeforeRouteUpdate((to) => {
-      routeOptions.params = to.path;
-      routeOptions.params = to.params;
       postRest
         .pageByRoute(pageOptions.current, pageOptions.pageSize, to)
         .then((response) => {
