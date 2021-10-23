@@ -48,7 +48,7 @@ public class PostRestApi {
     @Secured("ROLE_admin")
     public void upload(final PostDTO postDTO,
                        @RequestParam("file") final MultipartFile blogFile,
-                       @RequestParam("files[]") final List<MultipartFile> imageFiles) {
+                       @RequestParam(value = "files[]", required = false) final List<MultipartFile> imageFiles) {
         final Post post = BlogAssembler.toDO(postDTO);
         postApplicationService.create(post, blogFile, imageFiles);
     }
