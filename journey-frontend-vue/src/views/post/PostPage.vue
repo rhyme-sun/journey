@@ -60,7 +60,6 @@ export default defineComponent({
       return "";
     });
 
-    // const route = useRoute();
     const pageOptions = reactive({
       current: 1,
       pageSize: 10,
@@ -74,7 +73,7 @@ export default defineComponent({
         pageOptions.total = response.total;
       });
     const handlePageChange = (page, pageSize) => {
-      postRest.page(page, pageSize, route).then((response) => {
+      postRest.pageByRoute(page, pageSize, route).then((response) => {
         postAbstracts.value = response.data;
         pageOptions.total = response.total;
       });

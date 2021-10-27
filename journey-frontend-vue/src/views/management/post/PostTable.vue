@@ -43,7 +43,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useStore } from "vuex";
 import PostTableSearch from "./PostTableSearch.vue";
 import PostTableController from "./PostTableController.vue";
@@ -114,9 +114,9 @@ export default defineComponent({
       total.value = response.total;
     });
 
-    const pagination = {
+    const pagination = computed(() => ({
       total: total.value,
-    };
+    }));
 
     const handleTableChange = (pag) => {
       postRest.page(pag.current, pag.pageSize).then((response) => {
