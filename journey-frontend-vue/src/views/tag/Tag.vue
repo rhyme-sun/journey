@@ -71,5 +71,6 @@ export default defineComponent({
   padding: 0.25rem 0.5rem;
   font-size: 15px;
   border-radius: 0.2rem;
+  margin-top: 0.3rem;
 }
 </style>
