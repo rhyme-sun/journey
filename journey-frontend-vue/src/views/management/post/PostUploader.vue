@@ -145,8 +145,8 @@ export default defineComponent({
           trigger: "blur",
         },
         {
-          max: 100,
-          message: "最多100个字符",
+          max: 200,
+          message: "最多200个字符",
           trigger: "blur",
         },
       ],
