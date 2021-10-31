@@ -79,6 +79,7 @@ export default defineComponent({
       });
     };
     onBeforeRouteUpdate((to) => {
+      pageOptions.current = 1;
       postRest
         .pageByRoute(pageOptions.current, pageOptions.pageSize, to)
         .then((response) => {
