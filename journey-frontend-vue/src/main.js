@@ -27,6 +27,7 @@ import {
   Result,
   Tooltip,
   Typography,
+  BackTop,
 } from "ant-design-vue";
 
 const app = createApp(App);
@@ -56,7 +57,8 @@ app
   .use(Timeline)
   .use(Result)
   .use(Tooltip)
-  .use(Typography);
+  .use(Typography)
+  .use(BackTop);
 
 if (process.env.NODE_ENV === "production") {
   app.config.devtools = false;
