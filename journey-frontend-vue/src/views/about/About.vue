@@ -86,21 +86,27 @@
       <a-typography-paragraph>
         <ul>
           <li>
-            <a-typography-link href="https://edi.wang/"
-              >Edi Wang</a-typography-link
-            >
+            <a-typography-link href="https://edi.wang/">
+              Edi Wang
+            </a-typography-link>
           </li>
           <li>
-            <a-typography-link href="http://mogu-go.com/#/"
-              >蘑菇博客</a-typography-link
-            >
+            <a-typography-link href="http://mogu-go.com/#/">
+              蘑菇博客
+            </a-typography-link>
           </li>
         </ul>
       </a-typography-paragraph>
       <a-typography-paragraph>
-        <a-typography-title :level="4" type="secondary"
-          >关于本人</a-typography-title
-        >
+        博客网站源代码:
+        <a-typography-link href="https://github.com/rhyme-sun/journey">
+          rhyme-sun/journey (github.com)
+        </a-typography-link>
+      </a-typography-paragraph>
+      <a-typography-paragraph>
+        <a-typography-title :level="4" type="secondary">
+          关于本人
+        </a-typography-title>
       </a-typography-paragraph>
       <a-typography-paragraph>
         一个正在努力爬坡喜欢海贼王的编码人。
