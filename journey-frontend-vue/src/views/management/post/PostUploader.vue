@@ -174,7 +174,7 @@ export default defineComponent({
     });
 
     const tagGroupOptions = computed(() => {
-      return store.getters["tag/listTagGroups"]();
+      return store.getters["tag/listTagGroups"](formState.categoryId);
     });
 
     const groupId = ref("");

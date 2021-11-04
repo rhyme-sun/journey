@@ -26,12 +26,14 @@ const getters = {
     };
   },
   listTagGroups(state) {
-    return () => {
+    return (categoryId) => {
       const tagGroups = [];
       Object.keys(state.tagMap).forEach((key) => {
         const tag = state.tagMap[key];
         if (tag.isGroup) {
-          tagGroups.push(tag);
+          if (!categoryId || categoryId === tag.categoryId) {
+            tagGroups.push(tag);
+          }
         }
       });
       return tagGroups;
