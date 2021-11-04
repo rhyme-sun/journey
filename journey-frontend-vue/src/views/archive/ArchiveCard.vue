@@ -12,7 +12,7 @@
             class="archive-card-month"
             @click="handleClickMonth(yearCount, item.left.month)"
           >
-            <span>{{ item.left.month }} 月</span>
+            <span style="float: left">{{ item.left.month }} 月</span>
             <span style="float: right">{{ item.left.count }}</span>
           </div>
         </a-col>
@@ -23,7 +23,7 @@
             v-if="item.right"
             @click="handleClickMonth(yearCount, item.right.month)"
           >
-            <span>{{ item.right.month }} 月</span>
+            <span style="float: left">{{ item.right.month }} 月</span>
             <span style="float: right">{{ item.right?.count }}</span>
           </div>
         </a-col>
@@ -65,7 +65,7 @@ export default defineComponent({
 
 <style>
 .archive-card {
-  width: 440px;
+  width: 400px;
   border-radius: 4px;
   box-shadow: 0 1px 6px #0000002d;
   margin: 0px 20px;

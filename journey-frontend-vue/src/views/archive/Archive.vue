@@ -2,12 +2,8 @@
   <div style="text-align: left" class="archive">
     <h3>归档时间轴</h3>
     <a-divider style="height: 2px; background-color: #8c8c8c" />
-    <a-timeline
-      mode="alternate"
-      v-for="postCount in postCounts"
-      :key="postCount.year"
-    >
-      <a-timeline-item>
+    <a-timeline mode="alternate">
+      <a-timeline-item v-for="postCount in postCounts" :key="postCount.year">
         <template #dot>
           <CalendarTwoTone
             style="font-size: 30px"
