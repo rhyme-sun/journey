@@ -98,6 +98,7 @@ public class PostRepositoryImpl implements PostRepository {
     @Override
     public List<PostPO> findAllCreateTime() {
         final QueryWrapper<PostPO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByDesc(CREATE_TIME);
         queryWrapper.select(ID, CREATE_TIME);
         return postDao.selectList(queryWrapper);
     }
