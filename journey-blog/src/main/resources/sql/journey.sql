@@ -22,36 +22,48 @@ DROP SCHEMA IF EXISTS `journey`;
 CREATE SCHEMA IF NOT EXISTS `journey` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE `journey`;
 
-DROP TABLE IF EXISTS post;
-CREATE TABLE post(
-                     id VARCHAR(36) NOT NULL   COMMENT '主键ID' ,
-                     title VARCHAR(255)    COMMENT '博客标题' ,
-                     content_abstract VARCHAR(255)    COMMENT '博客概要' ,
-                     content TEXT    COMMENT '博客内容' ,
-                     create_time DATETIME    COMMENT '博客创建时间' ,
-                     update_time DATETIME    COMMENT '博客上次更新时间' ,
-                     is_published TINYINT(1) UNSIGNED    COMMENT '博客是否发布，0-否、1-是' ,
-                     publish_time DATETIME    COMMENT '博客发布时间' ,
-                     is_original TINYINT(1) UNSIGNED    COMMENT '是否原创，0-否、1-是' ,
-                     category_id VARCHAR(32)    COMMENT '博客分类ID' ,
-                     tag_ids VARCHAR(330)    COMMENT '博客标签ID列表' ,
-                     PRIMARY KEY (id)
-)  COMMENT = '博客表';
 
-DROP TABLE IF EXISTS blog_category;
-CREATE TABLE blog_category(
-                              id VARCHAR(36) NOT NULL   COMMENT '主键ID' ,
-                              name VARCHAR(60)    COMMENT '分类名称' ,
-                              description VARCHAR(255)    COMMENT '分类描述' ,
-                              PRIMARY KEY (id)
-)  COMMENT = '博客分类表';
 
-DROP TABLE IF EXISTS blog_tag;
-CREATE TABLE blog_tag(
-                         id VARCHAR(36) NOT NULL   COMMENT '主键ID' ,
-                         name VARCHAR(60)    COMMENT '标签名称' ,
-                         PRIMARY KEY (id)
-)  COMMENT = '博客标签表';
+DROP TABLE IF EXISTS `blog_post`;
+CREATE TABLE `blog_post` (
+                             `id` varchar(36) COLLATE utf8_bin NOT NULL,
+                             `title` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '博客标题',
+                             `content_abstract` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '博客概要',
+                             `content` text COLLATE utf8_bin COMMENT '博客内容',
+                             `create_time` datetime DEFAULT NULL COMMENT '博客创建时间',
+                             `update_time` datetime DEFAULT NULL COMMENT '博客上次更新时间',
+                             `is_published` tinyint(1) unsigned DEFAULT NULL COMMENT '博客是否发布，0-否、1-是',
+                             `publish_time` datetime DEFAULT NULL COMMENT '博客发布时间',
+                             `is_original` tinyint(1) unsigned DEFAULT NULL COMMENT '是否原创，0-否、1-是',
+                             `category_id` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '博客分类ID',
+                             `tag_ids` varchar(330) COLLATE utf8_bin DEFAULT NULL COMMENT '博客标签ID列表',
+                             PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='博客表';
+
+
+DROP TABLE IF EXISTS `blog_category`;
+CREATE TABLE `blog_category` (
+                                 `id` varchar(36) COLLATE utf8_bin NOT NULL,
+                                 `name` varchar(60) COLLATE utf8_bin DEFAULT NULL COMMENT '分类名称',
+                                 `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '分类描述',
+                                 `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                 `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                 PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='博客分类表';
+
+
+DROP TABLE IF EXISTS `blog_tag`;
+CREATE TABLE `blog_tag` (
+                            `id` varchar(36) COLLATE utf8_bin NOT NULL,
+                            `name` varchar(60) COLLATE utf8_bin DEFAULT NULL COMMENT '标签名称',
+                            `is_group` tinyint(4) DEFAULT '0' COMMENT '是否是组标签,0-否，1-是',
+                            `group_id` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '所属标签组ID',
+                            `category_id` varchar(36) COLLATE utf8_bin DEFAULT NULL COMMENT '标签所属分类ID',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='博客标签表';
+
 
 
 SET SQL_MODE = @OLD_SQL_MODE;
