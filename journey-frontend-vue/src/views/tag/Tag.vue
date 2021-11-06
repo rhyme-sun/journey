@@ -23,19 +23,22 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 export default defineComponent({
   setup() {
-    const categoryTags = ref({});
     const store = useStore();
-    categoryTags.value = store.getters["tag/listCategoryTags"]();
+    const categoryTags = computed(() => store.getters["tag/listCategoryTags"]);
 
     const getCategory = (categoryId) => {
       const category = store.getters["category/getCategory"](categoryId);
-      return category.categoryName + "：" + category.description;
+      if (category) {
+        return category.categoryName + "：" + category.description;
+      } else {
+        return "";
+      }
     };
 
     const getTagColor = (tag) => {

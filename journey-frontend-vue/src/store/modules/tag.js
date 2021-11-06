@@ -53,7 +53,7 @@ const getters = {
     };
   },
   listCategoryTags(state) {
-    return () => groupBy(state.tagMap, (tag) => tag.categoryId);
+    return groupBy(state.tagMap, (tag) => tag.categoryId);
   },
 };
 
