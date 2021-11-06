@@ -22,6 +22,7 @@ public class TagRepositoryImpl implements TagRepository {
 
     private static final String IS_GROUP = "is_group";
     private static final String GROUP_ID = "group_id";
+    private static final String CATEGORY_ID = "category_id";
 
     private final TagDao tagDao;
 
@@ -55,6 +56,7 @@ public class TagRepositoryImpl implements TagRepository {
             queryWrapper.eq(GROUP_ID, groupId);
         }
         queryWrapper.orderByDesc(IS_GROUP);
+        queryWrapper.orderByAsc(CATEGORY_ID);
         return queryWrapper;
     }
 
