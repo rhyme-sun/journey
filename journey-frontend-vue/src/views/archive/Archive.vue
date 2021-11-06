@@ -5,7 +5,7 @@
     <a-timeline mode="alternate">
       <a-timeline-item v-for="postCount in postCounts" :key="postCount.year">
         <template #dot>
-          <CalendarTwoTone
+          <DownCircleTwoTone
             style="font-size: 30px"
             :twoToneColor="getDotColor(postCount.year)"
           />
@@ -21,7 +21,7 @@
 </template>
 <script>
 import { defineComponent, ref } from "vue";
-import { CalendarTwoTone } from "@ant-design/icons-vue";
+import { DownCircleTwoTone } from "@ant-design/icons-vue";
 import postRest from "@/api/postRest";
 import ArchiveCard from "./ArchiveCard.vue";
 
@@ -75,7 +75,7 @@ export default defineComponent({
     return { postCounts, getDotColor };
   },
   components: {
-    CalendarTwoTone,
+    DownCircleTwoTone,
     ArchiveCard,
   },
 });

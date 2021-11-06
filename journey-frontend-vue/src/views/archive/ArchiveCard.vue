@@ -12,8 +12,12 @@
             class="archive-card-month"
             @click="handleClickMonth(yearCount, item.left.month)"
           >
-            <span style="float: left">{{ item.left.month }} 月</span>
-            <span style="float: right">{{ item.left.count }}</span>
+            <span :style="archiveCardMonthLeftStyle"
+              >{{ item.left.month }} 月</span
+            >
+            <span :style="archiveCardMonthRightStyle">{{
+              item.left.count
+            }}</span>
           </div>
         </a-col>
         <a-col :span="4"> </a-col>
@@ -23,8 +27,12 @@
             v-if="item.right"
             @click="handleClickMonth(yearCount, item.right.month)"
           >
-            <span style="float: left">{{ item.right.month }} 月</span>
-            <span style="float: right">{{ item.right?.count }}</span>
+            <span :style="archiveCardMonthLeftStyle"
+              >{{ item.right.month }} 月</span
+            >
+            <span :style="archiveCardMonthRightStyle">{{
+              item.right?.count
+            }}</span>
           </div>
         </a-col>
       </a-row>
@@ -33,7 +41,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
@@ -45,7 +53,7 @@ export default defineComponent({
       type: Array,
     },
   },
-  setup() {
+  setup(props) {
     const router = useRouter();
     const handleCilckYear = (year) => {
       router.push(`/journey/archives/${year}`);
@@ -55,9 +63,37 @@ export default defineComponent({
       router.push(`/journey/archives/${year}/${month}`);
     };
 
+    const archiveCardMonthLeftStyle = computed(() => {
+      return {
+        float: "left",
+      };
+    });
+
+    const archiveCardMonthRightStyle = computed(() => {
+      return {
+        float: "right",
+        background: getCountBackgroundColor(),
+      };
+    });
+
+    const getCountBackgroundColor = () => {
+      const remainder = props.yearCount % 4;
+      if (remainder === 0) {
+        return "#389e0d";
+      } else if (remainder === 1) {
+        return "#fa541c";
+      } else if (remainder === 2) {
+        return "#08979c";
+      } else {
+        return "#096dd9";
+      }
+    };
+
     return {
       handleCilckYear,
       handleClickMonth,
+      archiveCardMonthLeftStyle,
+      archiveCardMonthRightStyle,
     };
   },
 });
@@ -79,13 +115,13 @@ export default defineComponent({
   font-size: 15px;
   color: #10239e;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 27px;
 }
 .archive-card-month > span:last-child {
   width: 24px;
   height: 22px;
   color: #fff;
-  background: #8c8c8c;
+  /* background: #8c8c8c; */
   text-align: center;
   border-radius: 6px;
 }
