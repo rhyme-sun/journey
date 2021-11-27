@@ -35,7 +35,7 @@ body {
 }
 .layout-top {
   padding-bottom: 150px;
-  background-image: url(../assets/layout-top-bg.png);
+  background-image: url(../assets/layout-top-bg-6.png);
 }
 .ant-layout-header {
   margin: 0% 12%;
