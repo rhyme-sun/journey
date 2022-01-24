@@ -4,11 +4,6 @@
     <a-divider style="height: 2px; background-color: #8c8c8c" />
     <a-typography class="about-typography">
       <a-typography-paragraph>
-        编码就像一段旅途，每一行代码陪着我走了很多的路，欣赏了沿途的风景。想要走的远些，看的多些（
-        <a-typography-text strong>Keep coding, don't settle.</a-typography-text
-        >）。
-      </a-typography-paragraph>
-      <a-typography-paragraph>
         <a-typography-title :level="4" type="secondary"
           >关于本站</a-typography-title
         >
@@ -109,7 +104,7 @@
         </a-typography-title>
       </a-typography-paragraph>
       <a-typography-paragraph>
-        一个正在努力爬坡喜欢海贼王的编码人。
+        做好眼前的事情，积极并善良的活着。
       </a-typography-paragraph>
     </a-typography>
   </div>
