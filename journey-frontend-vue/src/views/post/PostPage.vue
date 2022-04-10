@@ -23,8 +23,8 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref, reactive, computed } from "vue";
-import { useRouter, useRoute, onBeforeRouteUpdate } from "vue-router";
+import { defineComponent, ref, reactive, computed, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 import PostCard from "@/components/PostCard";
 
@@ -78,15 +78,20 @@ export default defineComponent({
         pageOptions.total = response.total;
       });
     };
-    onBeforeRouteUpdate((to) => {
-      pageOptions.current = 1;
-      postRest
-        .pageByRoute(pageOptions.current, pageOptions.pageSize, to)
-        .then((response) => {
-          postAbstracts.value = response.data;
-          pageOptions.total = response.total;
-        });
-    });
+
+    watch(
+      () => router.currentRoute.value,
+      (newValue) => {
+        pageOptions.current = 1;
+        postRest
+          .pageByRoute(pageOptions.current, pageOptions.pageSize, newValue)
+          .then((response) => {
+            postAbstracts.value = response.data;
+            pageOptions.total = response.total;
+          });
+      },
+      {}
+    );
 
     return {
       title,
