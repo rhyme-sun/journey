@@ -64,17 +64,24 @@ export default defineComponent({
       return createTime.year();
     });
     const createMonth = computed(() => {
-      return createTime.month() + 1;
+      return formatTimeValue(createTime.month() + 1);
     });
     const createDay = computed(() => {
-      return createTime.date();
+      return formatTimeValue(createTime.date());
     });
     const createHour = computed(() => {
-      return createTime.hour();
+      return formatTimeValue(createTime.hour());
     });
     const createMinute = computed(() => {
-      return createTime.minute();
+      return formatTimeValue(createTime.minute());
     });
+    function formatTimeValue(timeValue) {
+      if (timeValue < 10) {
+        return "0" + timeValue;
+      } else {
+        return timeValue;
+      }
+    }
 
     const store = useStore();
     const tags = [];
