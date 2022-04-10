@@ -85,7 +85,6 @@ export default defineComponent({
       }
     });
     const handleClickTag = (tagId) => {
-      debugger;
       router.push(`/journey/tags/${tagId}/posts`);
     };
     const getTagColor = (tag) => {
