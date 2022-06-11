@@ -103,9 +103,7 @@
           关于本人
         </a-typography-title>
       </a-typography-paragraph>
-      <a-typography-paragraph>
-        做好眼前的事情，积极并善良的活着。
-      </a-typography-paragraph>
+      <a-typography-paragraph> 做好眼前的事情。 </a-typography-paragraph>
     </a-typography>
   </div>
 </template>

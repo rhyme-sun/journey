@@ -9,15 +9,13 @@ const assetsCDN = {
     vuex: "Vuex",
     "vue-router": "VueRouter",
     "ant-design-vue": "antd",
-    "highlight.js": "hljs",
   },
   css: [],
   js: [
-    "https://unpkg.com/vue@3",
-    "https://unpkg.com/vue-router@4",
-    "https://unpkg.com/vuex@4",
-    "https://cdn.jsdelivr.net/npm/ant-design-vue@2.2.6/dist/antd.js",
-    "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js",
+    "https://unpkg.com/vue@3.2.37/dist/vue.global.prod.js",
+    "https://unpkg.com/vue-router@4.0.16/dist/vue-router.global.prod.js",
+    "https://unpkg.com/vuex@4.0.2/dist/vuex.global.prod.js",
+    "https://unpkg.com/ant-design-vue@2.2.6/dist/antd.min.js",
   ],
 };
 
